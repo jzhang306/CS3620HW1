@@ -1,10 +1,11 @@
 How to run:
-Task1: ./shell
-Task2: ./procMonitor
-Task3: GUI.py and Monitor.c must stay at the same path
-In the terminal, run with python3 GUI.py
+Task1: ./shell<br>
+Task2: ./procMonitor<br>
+Task3: GUI.py and Monitor.c must stay at the same path<br>
+In the terminal, run with python3 GUI.py<br>
 
-What I learn from the homework:
+What I learn from the homework:<br>
+
 1. By building a UNIX shell, I learned how to use the system calls, especially: exit(), exec(), and fork().
 The built-in shell takes in the command argument by standart I/O, and then parse it into two parts: commands, and arguments. After storing them in an array, we then need to determine if the command is a system call. Since cd, history, help, exit, etc. belong to the built-in commands, which means they run directly in the shell program, they are fast, but we have to implement them. For external commands, since they are all executables in the /bin folder, we can invoke system calls by creating children process to run them. The special function is execvp() in exec() family.
 2. The process monitor is a program that visits the files in /proc to extract the information from the process file. /proc folder contains all the useful information about processes, after going into one process folder, we can find files and use cat command to open exe(if permitted) and status which contains the context switches, user id, etc. We have to iterate over all processes, then in every process, we iterate over the status file and get wanted texts. After doing that, we only keep those matching our user id, and then print out the exe path stored in proc/.../exe.
